@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head>
+        <title>Customer Details</title>
+        <meta charset="windows-1252">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                </head>
+                <body>
+                    <div>Customer Content </div>
+                    <p th:text="'Customer Name: ' + ${customer.custName}" /><br/>
+                    <p th:text="'Customer Email: ' + ${customer.custEmail}" /><br/>
+                    <p th:text="'Customer Email ' + ${customer.custMobile}" />  <br/>
+                    <p th:text="'Customer Mobile ' + ${customer.custCard}" /><br/>
+                </body>
+                </html>

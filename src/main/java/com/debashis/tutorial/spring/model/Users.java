@@ -28,19 +28,20 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "users")
 @XmlRootElement
 @NamedQueries(
-{
-    @NamedQuery(name = "Users.findAll", query = "SELECT u FROM Users u")
-    , @NamedQuery(name = "Users.findByUserId", query = "SELECT u FROM Users u WHERE u.userId = :userId")
-    , @NamedQuery(name = "Users.findByUserCode", query = "SELECT u FROM Users u WHERE u.userCode = :userCode")
-    , @NamedQuery(name = "Users.findByUserName", query = "SELECT u FROM Users u WHERE u.userName = :userName")
-    , @NamedQuery(name = "Users.findByUserPassword", query = "SELECT u FROM Users u WHERE u.userPassword = :userPassword")
-    , @NamedQuery(name = "Users.findByEmail", query = "SELECT u FROM Users u WHERE u.email = :email")
-    , @NamedQuery(name = "Users.findByPhone", query = "SELECT u FROM Users u WHERE u.phone = :phone")
-    , @NamedQuery(name = "Users.findByGender", query = "SELECT u FROM Users u WHERE u.gender = :gender")
-    , @NamedQuery(name = "Users.findByDateOfBirth", query = "SELECT u FROM Users u WHERE u.dateOfBirth = :dateOfBirth")
-    , @NamedQuery(name = "Users.findByRoleId", query = "SELECT u FROM Users u WHERE u.roleId = :roleId")
-    , @NamedQuery(name = "Users.findByTimestamp", query = "SELECT u FROM Users u WHERE u.timestamp = :timestamp")
-})
+        {
+            @NamedQuery(name = "Users.findAll", query = "SELECT u FROM Users u")
+            , @NamedQuery(name = "Users.findByUserId", query = "SELECT u FROM Users u WHERE u.userId = :userId")
+            , @NamedQuery(name = "Users.findByUserCode", query = "SELECT u FROM Users u WHERE u.userCode = :userCode")
+            , @NamedQuery(name = "Users.findByUserName", query = "SELECT u FROM Users u WHERE u.userName = :userName")
+            , @NamedQuery(name = "Users.validateLogin", query = "SELECT u FROM Users u WHERE u.userName = :userName AND u.userPassword = :userPassword")
+            , @NamedQuery(name = "Users.findByUserPassword", query = "SELECT u FROM Users u WHERE u.userPassword = :userPassword")
+            , @NamedQuery(name = "Users.findByEmail", query = "SELECT u FROM Users u WHERE u.email = :email")
+            , @NamedQuery(name = "Users.findByPhone", query = "SELECT u FROM Users u WHERE u.phone = :phone")
+            , @NamedQuery(name = "Users.findByGender", query = "SELECT u FROM Users u WHERE u.gender = :gender")
+            , @NamedQuery(name = "Users.findByDateOfBirth", query = "SELECT u FROM Users u WHERE u.dateOfBirth = :dateOfBirth")
+            , @NamedQuery(name = "Users.findByRoleId", query = "SELECT u FROM Users u WHERE u.roleId = :roleId")
+            , @NamedQuery(name = "Users.findByTimestamp", query = "SELECT u FROM Users u WHERE u.timestamp = :timestamp")
+        })
 public class Users implements Serializable
 {
 
@@ -228,5 +229,5 @@ public class Users implements Serializable
     {
         return "com.debashis.tutorial.spring.model.Users[ userId=" + userId + " ]";
     }
-    
+
 }

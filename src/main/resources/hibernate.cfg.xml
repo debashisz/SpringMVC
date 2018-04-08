@@ -48,8 +48,8 @@ Contributor(s):
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="hibernate.format_sql">true</property>
         <property name="hibernate.connection.password"></property>
-        <mapping class="com.javaduck.hibernate5.Customers"></mapping>
-        <mapping class="com.javaduck.hibernate5.OrderDetail"></mapping>
+        <mapping class="com.debashis.tutorial.spring.model.Users"></mapping>
+         
      
     </session-factory>
   

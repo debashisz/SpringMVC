@@ -6,41 +6,44 @@
 package com.debashis.tutorial.spring.util;
 
 import org.hibernate.SessionFactory;
-import org.hibernate.boot.Metadata;
-import org.hibernate.boot.MetadataSources;
-import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.Configuration;
 
 /**
  *
  * @author debas
  */
-public class HibernateUtilities {
+public class HibernateUtilities
+{
 
     private static SessionFactory sessionFactory;
 
-    static {
-        try {
-            StandardServiceRegistry standardRegistry
-                    = new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build();
-            Metadata metaData
-                    = new MetadataSources(standardRegistry).getMetadataBuilder().build();
-            sessionFactory = metaData.getSessionFactoryBuilder().build();
-        } catch (Throwable th) {
+    static
+    {
+        try
+        {
+            Configuration configuration = new Configuration().configure("hibernate.cfg.xml");
+            StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
+            sessionFactory = configuration.buildSessionFactory(builder.build());
+        } catch (Throwable th)
+        {
             System.err.println("Enitial SessionFactory creation failed" + th);
             throw new ExceptionInInitializerError(th);
         }
     }
 
-    public static SessionFactory getSessionFactory() {
+    public static SessionFactory getSessionFactory()
+    {
         return sessionFactory;
     }
 
-    public static void setSessionFactory(SessionFactory sessionFactory) {
+    public static void setSessionFactory(SessionFactory sessionFactory)
+    {
         HibernateUtilities.sessionFactory = sessionFactory;
     }
 
-    public static void shutdown() {
+    public static void shutdown()
+    {
         // Close caches and connection pools
         getSessionFactory().close();
     }

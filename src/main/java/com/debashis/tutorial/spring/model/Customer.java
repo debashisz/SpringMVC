@@ -16,7 +16,7 @@ public class Customer
     private String custEmail;
     private String custMobile;
     private String custCard;
-
+    private String[] radiobtn;
     /**
      * @return the custName
      */
@@ -79,6 +79,22 @@ public class Customer
     public void setCustCard(String custCard)
     {
         this.custCard = custCard;
+    }
+
+    /**
+     * @return the radiobtn
+     */
+    public String[] getRadiobtn()
+    {
+        return radiobtn;
+    }
+
+    /**
+     * @param radiobtn the radiobtn to set
+     */
+    public void setRadiobtn(String[] radiobtn)
+    {
+        this.radiobtn = radiobtn;
     }
 
 }

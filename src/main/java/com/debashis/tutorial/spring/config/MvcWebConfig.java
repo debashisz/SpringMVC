@@ -63,8 +63,7 @@ public class MvcWebConfig implements WebMvcConfigurer
     }
 
     @Bean
-    public static PropertySourcesPlaceholderConfigurer propertyConfigInDev()
-    {
+    public static PropertySourcesPlaceholderConfigurer propertyConfigInDev(){
         return new PropertySourcesPlaceholderConfigurer();
     }
 

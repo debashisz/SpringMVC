@@ -22,6 +22,37 @@
             <p>Mobile: <input type="text" th:field="*{custMobile}" /></p>
             <p>Card: <input type="text" th:field="*{custCard}" /></p>
             <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+            <br/>
+            <select name="ddlError">
+                <option value="-1">---Select Error Message---</option>
+                <option th:each="instance : ${errorMessages}"
+                        th:value="${instance}"
+                        th:utext="${instance}"/>
+            </select>
+            <br/>
+
+            <select name="ddlError2">
+                <option value="-1">---Select Days---</option>
+                <option th:each="instance : ${multiCheckboxAllValues}"
+                        th:value="${instance}"
+                        th:utext="${instance}"/>
+            </select>
+
+            <ul>
+                <li >
+                    <input type="checkbox"  th:field="*{radiobtn}"  name="radiobtn"  th:each="feat : ${multiCheckboxAllValues}"
+                           th:utext="${feat}"  th:value="${feat}" />
+
+                </li>
+            </ul>
+
+
+            <br/><br/>
+            <ul>
+                <li th:each="ty : ${multiCheckboxAllValues}">
+                    <input name="radiobt3n" type="radio" th:name="${ty}"   th:value="${ty}" /><span th:text="${ty}" /> 
+                </li>
+            </ul>
         </form>
     </body>
 </html>

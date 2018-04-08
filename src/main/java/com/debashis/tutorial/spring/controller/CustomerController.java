@@ -30,6 +30,16 @@ public class CustomerController
     public String customerForm(Model model)
     {
         model.addAttribute("customer", new Customer());
+        String[] multiCheckboxAllValues = new String[7];
+        multiCheckboxAllValues[0] = "Mon";
+        multiCheckboxAllValues[1] = "Tue";
+        multiCheckboxAllValues[2] = "Wed";
+        multiCheckboxAllValues[3] = "Thu";
+        multiCheckboxAllValues[4] = "Fri";
+        multiCheckboxAllValues[5] = "Sat";
+        multiCheckboxAllValues[6] = "Sun";
+        model.addAttribute("multiCheckboxAllValues", multiCheckboxAllValues);
+
         return "customer-insert";
     }
 

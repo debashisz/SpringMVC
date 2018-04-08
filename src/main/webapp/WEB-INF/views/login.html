@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:th="http://www.thymeleaf.org"
+          xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+        <title>Login</title>
+        <meta charset="windows-1252">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                </head>
+                <body>
+                    <table style=" border-width: 3px" >
+
+                        <tr th:each="instance : ${errormessages}">
+
+                            <td th:text="${instance}"> </td>
+                        </tr>
+                    </table>
+                    <br/>                    <br/>
+
+                    <form action="#" th:action="@{/login}" th:object="${login}"  method="post">
+                        <p>User Name: <input type="text" th:field="*{userName}" /></p>
+                        <p>Password <input type="password" th:field="*{userPassword}" /></p>
+                        <br/> <br/> <br/>
+                        <p><input type="submit" value="Submit" />
+                            <input type="reset" value="Reset" /></p>
+                    </form>
+                </body>
+                </html>

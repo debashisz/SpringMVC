@@ -5,6 +5,7 @@
  */
 package com.debashis.tutorial.spring.util;
 
+import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -25,7 +26,7 @@ public class HibernateUtilities
             Configuration configuration = new Configuration().configure("hibernate.cfg.xml");
             StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
             sessionFactory = configuration.buildSessionFactory(builder.build());
-        } catch (Throwable th)
+        } catch (HibernateException th)
         {
             System.err.println("Enitial SessionFactory creation failed" + th);
             throw new ExceptionInInitializerError(th);

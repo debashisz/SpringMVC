@@ -10,11 +10,16 @@ and open the template in the editor.
     <title>Welcome to Dash Board</title>
 
 </head>
- 
+
 <body>
     <div>Dashboard Time:
-        <p th:text="${time}" /> 
-     </div>
+        <p th:text="${time}" />
+        <table>
+            <tr th:each=" : ${}" >
+                <td th:text="${}"></td>
+            </tr>
+        </table>
+    </div>
 </body>
 
 </html>

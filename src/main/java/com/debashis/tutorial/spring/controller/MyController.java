@@ -16,7 +16,7 @@ public class MyController
     @GetMapping("/")
     public String index(Model model)
     {
-        Hashtable hs = new Hashtable();
+        Hashtable<String, String> hs = new Hashtable<String, String>();
         hs.put("key1", "Sony TV");
         hs.put("key2", "Philips TV");
         hs.put("key3", "Onida TV");

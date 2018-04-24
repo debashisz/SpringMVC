@@ -23,6 +23,7 @@
             <p>Card: <input type="text" th:field="*{custCard}" /></p>
             <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
             <br/>
+            
             <select name="ddlError">
                 <option value="-1">---Select Error Message---</option>
                 <option th:each="instance : ${errorMessages}"

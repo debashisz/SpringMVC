@@ -64,7 +64,7 @@ public class LoginController
                 Query qry = session.getNamedQuery("Users.validateLogin");
                 qry.setParameter("userName", user.getUserName().trim());
                 qry.setParameter("userPassword", user.getUserPassword().trim());
-                List lst = qry.list();
+                List<Users> lst = qry.list();
                 isValidLogin = !lst.isEmpty();
                 session.getTransaction().commit();
                 HibernateUtilities.shutdown();
@@ -75,18 +75,21 @@ public class LoginController
                 } else
                 {
                     errorMessage.add("Invalid Login Credential.");
+                    model.addAttribute("login", new Users());
                     model.addAttribute("errormessages", errorMessage);
-                    model.addAttribute("login", user);
+ 
                     return "login";
                 }
             } catch (HibernateException ex)
             {
-                System.err.print(Arrays.toString(ex.getStackTrace()));
+               errorMessage.add("Invalid Login Credential.");
+                    model.addAttribute("login", new Users());
+                    model.addAttribute("errormessages", errorMessage);
             }
         } else
         {
             model.addAttribute("errormessages", errorMessage);
-            model.addAttribute("login", user);
+            model.addAttribute("login", new Users());
         }
 
         return "login";

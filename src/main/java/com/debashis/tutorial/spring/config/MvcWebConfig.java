@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.thymeleaf.spring5.SpringTemplateEngine;
@@ -28,6 +29,19 @@ public class MvcWebConfig implements WebMvcConfigurer
     /*
     * STEP 1 - Create SpringResourceTemplateResolver
     * */
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler(
+               
+                "/img/**",
+                "/css/**",
+                "/js/**")
+                .addResourceLocations(
+                        
+                        "classpath:/static/img/",
+                        "classpath:/static/css/",
+                        "classpath:/static/js/");
+    }
+    
     @Bean
     public SpringResourceTemplateResolver templateResolver()
     {

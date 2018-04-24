@@ -29,19 +29,20 @@ public class MvcWebConfig implements WebMvcConfigurer
     /*
     * STEP 1 - Create SpringResourceTemplateResolver
     * */
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+    public void addResourceHandlers(ResourceHandlerRegistry registry)
+    {
         registry.addResourceHandler(
-               
+                "/webjars/**",
                 "/img/**",
                 "/css/**",
                 "/js/**")
                 .addResourceLocations(
-                        
+                        "classpath:/META-INF/resources/webjars/",
                         "classpath:/static/img/",
                         "classpath:/static/css/",
                         "classpath:/static/js/");
     }
-    
+
     @Bean
     public SpringResourceTemplateResolver templateResolver()
     {
@@ -49,7 +50,7 @@ public class MvcWebConfig implements WebMvcConfigurer
         templateResolver.setApplicationContext(applicationContext);
         templateResolver.setPrefix("/WEB-INF/views/");
         templateResolver.setSuffix(".html");
-       // templateResolver.setSuffix(".jsp");
+        // templateResolver.setSuffix(".jsp");
         return templateResolver;
     }
 
@@ -77,7 +78,8 @@ public class MvcWebConfig implements WebMvcConfigurer
     }
 
     @Bean
-    public static PropertySourcesPlaceholderConfigurer propertyConfigInDev(){
+    public static PropertySourcesPlaceholderConfigurer propertyConfigInDev()
+    {
         return new PropertySourcesPlaceholderConfigurer();
     }
 
